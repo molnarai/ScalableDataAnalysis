@@ -1,6 +1,6 @@
 ---
 title: Project
-description: Instructions for group project
+description: "The course projects comprise a curated set of retail analytics problems designed with consistent scope, data scale, and technical rigor, forming the primary analytical work of the course. Each project follows a structured sequence of milestones that guide the development of an end‑to‑end scalable data analytics system, beginning with data understanding and ETL/ELT pipeline construction and progressing through baseline and improved modeling, systematic evaluation of analytical quality and system performance, and comprehensive reporting. Projects are developed and versioned using the internal GitLab repository and executed on the ARC to ensure reproducibility in a realistic computing environment. The milestone sequence culminates in a final report and presentation, producing a polished technical artifact suitable for inclusion in a professional portfolio."
 layout: "project"
 ---
 <!-- **[Guidelines for Final Project Presentation](project-final-presentation/)** -->

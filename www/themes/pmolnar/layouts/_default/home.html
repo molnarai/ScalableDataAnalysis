@@ -5,7 +5,8 @@
   <div class="main-description">
     {{ .Params.description | markdownify }}
   </div>
-  <hr />
+  <!-- <hr /> -->
+
   <h2>Schedule</h2>
   {{ $events := index site.Data.schedule "records" }} 
   <table class="table">
@@ -25,7 +26,7 @@
     <tr>
       <!-- <td>{{- .Day }}</td> -->
       <td style="text-align: center;">{{- .Session }}</td>
-      <td>{{- .Date}}</td>
+      <td style="min-width: 12ex;">{{- .Date}}</td>
       <td>
         {{ if .Session }}
           {{ $sessionNum := 0 }}
@@ -74,15 +75,10 @@
   {{ $projects := where site.RegularPages "Section" "project" }}
   {{ if $projects }}
     <h2>Project</h2>
-    <p>This semester-long project centers on developing a Document-Driven Agentic Intelligence System
-    (DAIS) utilizing a business-relevant document corpus and a multi-agent architecture. 
-    Students will choose from three variations - knowledge graph construction, research advising, or
-    scientific/business discovery - and design the system around a defined user persona.
-    The project involves building a data pipeline for document ingestion and processing, 
-    coupled with interactive and batch query interfaces for human and automated evaluation.
-    Ultimately, students will deliver a fully functional, demonstrably effective DAIS,
-    assessed through a student-constructed test set and culminating in a technical report,
-    demo video, and in-class presentation.</p>
+    
+    {{ with site.GetPage "/project" }}
+      <p>{{ .Description | markdownify }}</p>
+    {{ end }}
 
     {{ $milestones := index site.Data.milestones_schedule "records" }} 
     {{ if $milestones }}
