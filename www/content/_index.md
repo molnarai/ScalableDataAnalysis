@@ -14,7 +14,7 @@ The course combines theoretical discussions with hands-on technical work in Spar
 
 
 
-### Documents
+## Documents
 - [Course Syllabus (PDF)](files/syllabus.pdf)
 
 <!-- <a href="files/syllabus.pdf" download class="download-link">

@@ -54,7 +54,7 @@
    {{ if $topics }}
      <h2>Topics</h2>
      <ul>
-       {{ range sort $topics "Title" }}
+       {{ range sort $topics "Date" }}
          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
        {{ end }}
      </ul>
