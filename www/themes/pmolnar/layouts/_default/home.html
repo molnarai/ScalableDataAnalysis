@@ -1,0 +1,127 @@
+{{ define "main" }}
+  {{ partial "breadcrumbs.html" . }}
+  <article class="home-index">
+  <h1>{{ .Params.extended_title }}</h1>
+  <div class="main-description">
+    {{ .Params.description | markdownify }}
+  </div>
+  <hr />
+  <h2>Schedule</h2>
+  {{ $events := index site.Data.schedule "records" }} 
+  <table class="table">
+    <caption>Class Schedule</caption>
+    <thead>
+      <tr>
+        <th scope="col">Session</th>
+        <th scope="col">Date</th>
+        <th scope="col">Topic</th>
+        <!-- <th scope="col">Topic</th> -->
+        <th scope="col">In Class</th>
+        <th scope="col">Project Milestone</th>
+      </tr>
+    </thead>
+    <tbody>
+  {{ range $events }}
+    <tr>
+      <!-- <td>{{- .Day }}</td> -->
+      <td style="text-align: center;">{{- .Session }}</td>
+      <td>{{- .Date}}</td>
+      <td>
+        {{ if .Session }}
+          {{ $sessionNum := 0 }}
+          {{ if eq (printf "%T" .Session) "string" }}
+            {{ $sessionNum = int .Session }}
+          {{ else }}
+            {{ $sessionNum = .Session }}
+          {{ end }}
+          <a href="topics/topic-{{ printf "%02d" $sessionNum }}/">{{ .Topic }}</a>
+        {{ else }}
+          {{ .Topic }}
+        {{ end }}
+      </td>
+      <td>{{- .InClass }}</td>
+      <td>{{ if .Milestone }}{{ index (split .Milestone ".") 0 }}{{ end }}</td>
+    </tr>
+  {{ end }}
+    </tbody>
+  </table>
+
+  {{ .Content }}
+  
+   <!-- Topics -->
+   {{ $topics := where site.RegularPages "Section" "topics" }}
+   {{ if $topics }}
+     <h2>Topics</h2>
+     <ul>
+       {{ range sort $topics "Title" }}
+         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+       {{ end }}
+     </ul>
+   {{ end }}
+ 
+  <!-- Assignments -->
+  <!-- {{ $assignments := where site.RegularPages "Section" "assignments" }}
+  {{ if $assignments }}
+    <h3>Assignments</h3>
+    <ul>
+      {{ range sort $assignments "Title" }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }} -->
+
+  <!-- Project -->
+  {{ $projects := where site.RegularPages "Section" "project" }}
+  {{ if $projects }}
+    <h2>Project</h2>
+    <p>This semester-long project centers on developing a Document-Driven Agentic Intelligence System
+    (DAIS) utilizing a business-relevant document corpus and a multi-agent architecture. 
+    Students will choose from three variations - knowledge graph construction, research advising, or
+    scientific/business discovery - and design the system around a defined user persona.
+    The project involves building a data pipeline for document ingestion and processing, 
+    coupled with interactive and batch query interfaces for human and automated evaluation.
+    Ultimately, students will deliver a fully functional, demonstrably effective DAIS,
+    assessed through a student-constructed test set and culminating in a technical report,
+    demo video, and in-class presentation.</p>
+
+    {{ $milestones := index site.Data.milestones_schedule "records" }} 
+    {{ if $milestones }}
+      <h3>Project Milestones</h3>
+      <table class="table">
+        <caption>Project Milestones</caption>
+        <thead>
+          <tr>
+            <th scope="col">Milestone</th>
+            <th scope="col">Due</th>
+            <!-- <th scope="col">Wednesday due</th> -->
+          </tr>
+        </thead>
+        <tbody>
+      {{ range $milestones }}
+        <tr>
+          <td>{{- .Milestone }}</td>
+          <td>{{- (time .Date) | time.Format "2006-01-02" }}</td>
+          <!-- <td>{{- .Wednesday}}</td> -->
+        </tr>
+      {{ end }}
+        </tbody>
+      </table>
+    {{ end }}
+
+  {{ end }}
+
+ 
+
+  <!-- Resources -->
+  {{ $resources := where site.RegularPages "Section" "resources" }}
+  {{ if $resources }}
+    <h2>Resources</h2>
+    <ul>
+      {{ range sort $resources "Title" }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+  </article>
+{{ end }}
+
