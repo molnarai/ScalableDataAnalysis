@@ -4,6 +4,8 @@ extended_title: 'MSA 8050: Scalable Data Analysis'
 layout: home
 description: 'The course integrates algorithmic theory, scalable computing systems, and project-based practice for modern data science on large datasets. It covers core algorithms for machine learning, recommender systems, graph mining, frequent pattern mining, and forecasting, while learning how these methods change when deployed on parallel and distributed systems such as Apache Spark. 
 The course combines theoretical discussions with hands-on technical work in Spark, ETL and ELT pipeline design, workflow orchestration, experiment tracking, and scalable model development. Through one of three retail analytics projects, students build and evaluate end-to-end solutions that improve both technical performance and analytical quality over a baseline implementation.'
+jumbotron: "../imgs/msa8050-home-page.png"
+podcasturl: 'https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Scaling_Retail_Analytics_with_Apache_Spark.m4a'
 ---
 
 <!--
