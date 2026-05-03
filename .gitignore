@@ -11,6 +11,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+!www/themes/reveal-hugo/static/reveal-js/dist/
 downloads/
 eggs/
 .eggs/
