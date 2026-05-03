@@ -89,7 +89,7 @@ transition = "slide"
 
 [security]
   [security.http]
-    urls = ['.*insight-gsu-edu-msa8050-public-files-us-east-1\.s3\.us-east-1\.amazonaws\.com.*', '.*cdn\.jsdelivr\.net.*']
+    urls = ['.*insight-gsu-edu-msa8050-public-files-us-east-1\.s3\.us-east-1\.amazonaws\.com.*', '.*insight-gsu-edu-msa8700-public-files-us-east-1\.s3\.us-east-1\.amazonaws\.com.*', '.*cdn\.jsdelivr\.net.*']
 
 [sitemap]
   changeFreq = ''
